@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>M & K GLOBAL AUTOS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#000;
+    color:#f5d76e;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:15px;
+}
+
+header h1{
+    margin:10px 0;
+}
+
+header p{
+    color:#fff;
+}
+
+/* VIDEO */
+.video{
+    width:100%;
+    height:220px;
+    overflow:hidden;
+    border-top:2px solid #f5d76e;
+    border-bottom:2px solid #f5d76e;
+}
+
+.video video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* BUTTONS */
+.buttons a{
+    display:inline-block;
+    margin:6px;
+    padding:10px 16px;
+    background:#f5d76e;
+    color:#000;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+/* SLIDER */
+.slider{
+    overflow:hidden;
+    padding:15px 0;
+}
+
+.track{
+    display:flex;
+    animation:move 6s infinite alternate;
+}
+
+.track img{
+    height:180px;
+    margin:0 10px;
+    border:2px solid #f5d76e;
+}
+
+@keyframes move{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50px);}
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    padding:15px;
+}
+
+.services a{
+    padding:15px;
+    text-align:center;
+    border:2px solid #f5d76e;
+    text-decoration:none;
+    color:#fff;
+    border-radius:8px;
+}
+
+.services a:hover{
+    background:#f5d76e;
+    color:#000;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    padding:15px;
+}
+
+.gallery img{
+    width:100%;
+    border:2px solid #f5d76e;
+}
+
+/* MAP */
+.map{
+    margin:20px;
+    border:2px solid #f5d76e;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>M & K GLOBAL AUTOS</h1>
+
+<p><b>Experts in Upgrading & Conversion Kits</b></p>
+
+<p>
+Bonnet • Bumper • Full Light • Back Light • Fender • Grill • Side Mirror • Door • Accessories<br>
+Toyota & Lexus
+</p>
+
+<div class="buttons">
+<a href="https://wa.me/2347031336663">WHATSAPP</a>
+<a href="https://www.tiktok.com/@markhenry880?_r=1&_t=ZS-95LCw9gaiEW">TIKTOK</a>
+<a href="https://www.facebook.com/share/1CSsJwS6Sn/">FACEBOOK</a>
+</div>
+</header>
+
+<!-- VIDEO -->
+<div class="video">
+<video autoplay muted loop>
+<source src="auto-video.mp4" type="video/mp4">
+</video>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+<div class="track">
+<img src="car1.jpg">
+<img src="car2.jpg">
+</div>
+</div>
+
+<!-- SERVICES -->
+<div class="services">
+<a href="https://wa.me/2347031336663?text=Bonnet Upgrade">Bonnet</a>
+<a href="https://wa.me/2347031336663?text=Bumper Upgrade">Bumper</a>
+<a href="https://wa.me/2347031336663?text=Full Light">Full Light</a>
+<a href="https://wa.me/2347031336663?text=Back Light">Back Light</a>
+<a href="https://wa.me/2347031336663?text=Fender">Fender</a>
+<a href="https://wa.me/2347031336663?text=Grill">Grill</a>
+<a href="https://wa.me/2347031336663?text=Side Mirror">Side Mirror</a>
+<a href="https://wa.me/2347031336663?text=Door">Door</a>
+<a href="https://wa.me/2347031336663?text=Accessories">Accessories</a>
+<a href="https://wa.me/2347031336663?text=Toyota Upgrade">Toyota</a>
+<a href="https://wa.me/2347031336663?text=Lexus Upgrade">Lexus</a>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+<img src="car3.jpg">
+<img src="car4.jpg">
+<img src="car5.jpg">
+<img src="car6.jpg">
+</div>
+
+<!-- MAP -->
+<div class="map">
+<iframe 
+src="https://www.google.com/maps?q=Lagos&output=embed"
+width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
+</iframe>
+</div>
+
+<footer>
+© M & K GLOBAL AUTOS – Premium Auto Upgrade Experts
+</footer>
+
+</body>
+</html>
