@@ -47,26 +47,33 @@ header p{
     border-radius:5px;
 }
 
-/* ===== CLICKABLE PRODUCTS ===== */
-.products{
+/* ===== COLUMNS ===== */
+.columns{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    gap:12px;
+    gap:10px;
     padding:15px;
     text-align:center;
 }
 
-.products button{
-    padding:10px;
-    background:#f5d76e;
-    color:#000;
-    border:none;
-    font-weight:bold;
+.columns a{
+    display:block;
+    padding:12px;
+    background:#111;
+    color:#f5d76e;
+    text-decoration:none;
+    border:2px solid #f5d76e;
     border-radius:5px;
-    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
 }
 
-/* ===== FORM ===== */
+.columns a:hover{
+    background:#f5d76e;
+    color:#000;
+}
+
+/* ===== ORDER FORM ===== */
 .container{
     padding:15px;
 }
@@ -92,7 +99,7 @@ input, select, textarea{
     border:none;
 }
 
-button.submit-btn{
+button{
     width:100%;
     margin-top:18px;
     padding:12px;
@@ -128,7 +135,8 @@ footer{
 
 <h1>M & K GLOBAL AUTOS</h1>
 <p><b>Expert in Upgrading and Conversion Kits</b></p>
-<p>Bonnet, Bumper, Full Light, Back Light, Fender, Grill, Side Mirror, Door and Accessories – Toyota & Lexus</p>
+<p>Bonnet, bumper, full light, back light, fender, grill, side mirror, door and other accessories, Toyota and Lexus</p>
+<p>029, 027 & 032 Peace Plaza, By Bonsac Junction, Asaba–Benin Expressway, Asaba</p>
 
 <div class="buttons">
 <a href="https://wa.me/2347031336663">WHATSAPP</a>
@@ -137,43 +145,41 @@ footer{
 </div>
 </header>
 
-<!-- ===== CLICKABLE PRODUCTS ===== -->
-<h2 style="text-align:center; color:#f5d76e; margin-top:20px;">Place Your Orders</h2>
-<div class="products">
-<button type="button" onclick="addSpec('Bonnet')">Bonnet</button>
-<button type="button" onclick="addSpec('Bumper')">Bumper</button>
-<button type="button" onclick="addSpec('Full Light')">Full Light</button>
-<button type="button" onclick="addSpec('Back Light')">Back Light</button>
-<button type="button" onclick="addSpec('Fender')">Fender</button>
-<button type="button" onclick="addSpec('Grill')">Grill</button>
-<button type="button" onclick="addSpec('Side Mirror')">Side Mirror</button>
-<button type="button" onclick="addSpec('Door')">Door</button>
-<button type="button" onclick="addSpec('Accessories')">Accessories</button>
-<button type="button" onclick="addSpec('Toyota')">Toyota</button>
-<button type="button" onclick="addSpec('Lexus')">Lexus</button>
+<!-- ===== COLUMNS ===== -->
+<h2 style="text-align:center; padding-top:10px;">Place Your Orders</h2>
+<div class="columns">
+<a href="#">Upgrading and conversion Bonnet</a>
+<a href="#">Bumper</a>
+<a href="#">Full Light</a>
+<a href="#">Back Light</a>
+<a href="#">Fender</a>
+<a href="#">Grill</a>
+<a href="#">Side Mirror</a>
+<a href="#">Door</a>
+<a href="#">Accessories</a>
+<a href="#">Toyota</a>
+<a href="#">Lexus</a>
 </div>
 
-<!-- ===== FORM ===== -->
+<!-- ===== ORDER FORM ===== -->
 <div class="container">
 <form onsubmit="sendWhatsApp(); return false;">
-
-<label>Customer Name</label>
+<label>Name</label>
 <input type="text" id="cName" required>
 
 <label>Phone Number</label>
 <input type="tel" id="cPhone" required>
 
 <label>Specifications</label>
-<textarea id="cSpec" rows="4" placeholder="Click the buttons above to add products"></textarea>
+<textarea id="cSpecs" required placeholder="Enter your specifications"></textarea>
 
-<label>Home Delivery</label>
-<select id="delivery">
+<label>Are we delivering to your house?</label>
+<select id="cDelivery">
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<button type="submit" class="submit-btn">Submit via WhatsApp</button>
-
+<button>Submit via WhatsApp</button>
 </form>
 </div>
 
@@ -186,29 +192,20 @@ width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
 </div>
 
 <footer>
-© M & K GLOBAL AUTOS – Trusted Upgrading and Conversion Kits
+© M & K GLOBAL AUTOS – Trusted Auto Upgrading Specialists
 </footer>
 
 <script>
-function addSpec(product){
-    const specField = document.getElementById("cSpec");
-    if(specField.value){
-        specField.value += ', ' + product;
-    } else {
-        specField.value = product;
-    }
-}
-
 function sendWhatsApp(){
     const name = document.getElementById("cName").value;
     const phone = document.getElementById("cPhone").value;
-    const spec = document.getElementById("cSpec").value;
-    const delivery = document.getElementById("delivery").value;
+    const specs = document.getElementById("cSpecs").value;
+    const delivery = document.getElementById("cDelivery").value;
 
     const message = `Hello M & K GLOBAL AUTOS!%0A%0AI would like to place an order:%0A
 Name: ${name}%0A
 Phone: ${phone}%0A
-Specifications: ${spec}%0A
+Specifications: ${specs}%0A
 Home Delivery: ${delivery}%0A%0AThank you.`;
 
     window.open(`https://wa.me/2347031336663?text=${message}`, "_blank");
