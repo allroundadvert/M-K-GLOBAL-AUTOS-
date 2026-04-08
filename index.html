@@ -13,7 +13,7 @@ body{
     color:#f5d76e;
 }
 
-/* HEADER */
+/* ===== HEADER IMAGE ===== */
 header{
     text-align:center;
     padding:15px;
@@ -27,14 +27,15 @@ header img{
 }
 
 header h1{
-    margin:10px 0;
+    margin:10px 0 5px;
 }
 
 header p{
     color:#fff;
+    font-size:14px;
 }
 
-/* BUTTONS */
+/* ===== BUTTONS ===== */
 .buttons a{
     display:inline-block;
     margin:6px;
@@ -42,20 +43,32 @@ header p{
     background:#f5d76e;
     color:#000;
     text-decoration:none;
-    border-radius:5px;
     font-weight:bold;
+    border-radius:5px;
 }
 
-/* FORM */
+/* ===== CLICKABLE PRODUCTS ===== */
+.products{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:12px;
+    padding:15px;
+    text-align:center;
+}
+
+.products button{
+    padding:10px;
+    background:#f5d76e;
+    color:#000;
+    border:none;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* ===== FORM ===== */
 .container{
     padding:15px;
-}
-
-.note{
-    text-align:center;
-    font-weight:bold;
-    font-size:18px;
-    margin-bottom:10px;
 }
 
 form{
@@ -71,15 +84,15 @@ label{
     font-weight:bold;
 }
 
-input, textarea, select{
+input, select, textarea{
     width:100%;
-    padding:10px;
+    padding:8px;
     margin-top:5px;
-    border-radius:5px;
+    border-radius:4px;
     border:none;
 }
 
-button{
+button.submit-btn{
     width:100%;
     margin-top:18px;
     padding:12px;
@@ -91,96 +104,98 @@ button{
     cursor:pointer;
 }
 
-/* MAP */
-.map{
-    margin:20px;
-    border:2px solid #f5d76e;
-}
-
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
     text-align:center;
     padding:15px;
     color:#fff;
+    font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- ===== HEADER ===== -->
 <header>
-
 <img src="https://raw.githubusercontent.com/allroundadvert/M-K-GLOBAL-AUTOS-/245ff13fbbade84acba743c73ce97952d8ca0ec7/.github/workflows/1775644012285.png" alt="M & K GLOBAL AUTOS">
 
 <h1>M & K GLOBAL AUTOS</h1>
-
-<p><b>Experts in Upgrading & Conversion Kits</b></p>
-
-<p>
-Bonnet • Bumper • Full Light • Back Light • Fender • Grill • Side Mirror • Door • Accessories<br>
-Toyota & Lexus
-</p>
+<p><b>Expert in Upgrading and Conversion Kits</b></p>
+<p>Bonnet, Bumper, Full Light, Back Light, Fender, Grill, Side Mirror, Door and Accessories – Toyota & Lexus</p>
 
 <div class="buttons">
 <a href="https://wa.me/2347031336663">WHATSAPP</a>
 <a href="https://www.tiktok.com/@markhenry880?_r=1&_t=ZS-95LCw9gaiEW">TIKTOK</a>
 <a href="https://www.facebook.com/share/1CSsJwS6Sn/">FACEBOOK</a>
 </div>
-
 </header>
 
-<!-- CUSTOMER FORM -->
+<!-- ===== CLICKABLE PRODUCTS ===== -->
+<h2 style="text-align:center; color:#f5d76e; margin-top:20px;">Place Your Orders</h2>
+<div class="products">
+<button type="button" onclick="addSpec('Bonnet')">Bonnet</button>
+<button type="button" onclick="addSpec('Bumper')">Bumper</button>
+<button type="button" onclick="addSpec('Full Light')">Full Light</button>
+<button type="button" onclick="addSpec('Back Light')">Back Light</button>
+<button type="button" onclick="addSpec('Fender')">Fender</button>
+<button type="button" onclick="addSpec('Grill')">Grill</button>
+<button type="button" onclick="addSpec('Side Mirror')">Side Mirror</button>
+<button type="button" onclick="addSpec('Door')">Door</button>
+<button type="button" onclick="addSpec('Accessories')">Accessories</button>
+<button type="button" onclick="addSpec('Toyota')">Toyota</button>
+<button type="button" onclick="addSpec('Lexus')">Lexus</button>
+</div>
+
+<!-- ===== FORM ===== -->
 <div class="container">
-
-<div class="note">Place your orders</div>
-
 <form onsubmit="sendWhatsApp(); return false;">
 
 <label>Customer Name</label>
-<input type="text" id="name" required>
+<input type="text" id="cName" required>
 
 <label>Phone Number</label>
-<input type="tel" id="phone" required>
+<input type="tel" id="cPhone" required>
 
-<label>Specifications (What do you want?)</label>
-<textarea id="spec" rows="4" required></textarea>
+<label>Specifications</label>
+<textarea id="cSpec" rows="4" placeholder="Click the buttons above to add products"></textarea>
 
-<label>Delivery</label>
+<label>Home Delivery</label>
 <select id="delivery">
-<option>Yes, deliver to my house</option>
-<option>No, I will pick it up</option>
+<option>Yes</option>
+<option>No</option>
 </select>
 
-<button>Submit via WhatsApp</button>
+<button type="submit" class="submit-btn">Submit via WhatsApp</button>
 
 </form>
 </div>
 
-<!-- MAP -->
-<div class="map">
-<iframe 
-src="https://www.google.com/maps?q=Lagos&output=embed"
-width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
-</iframe>
-</div>
-
 <footer>
-© M & K GLOBAL AUTOS – Premium Auto Upgrade Experts
+© M & K GLOBAL AUTOS – Trusted Upgrading and Conversion Kits
 </footer>
 
 <script>
+function addSpec(product){
+    const specField = document.getElementById("cSpec");
+    if(specField.value){
+        specField.value += ', ' + product;
+    } else {
+        specField.value = product;
+    }
+}
+
 function sendWhatsApp(){
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const spec = document.getElementById("spec").value;
+    const name = document.getElementById("cName").value;
+    const phone = document.getElementById("cPhone").value;
+    const spec = document.getElementById("cSpec").value;
     const delivery = document.getElementById("delivery").value;
 
-    const message = `Hello M & K GLOBAL AUTOS!%0A%0AI want to make an enquiry:%0A
+    const message = `Hello M & K GLOBAL AUTOS!%0A%0AI would like to place an order:%0A
 Name: ${name}%0A
 Phone: ${phone}%0A
 Specifications: ${spec}%0A
-Delivery: ${delivery}%0A%0AThank you.`;
+Home Delivery: ${delivery}%0A%0AThank you.`;
 
     window.open(`https://wa.me/2347031336663?text=${message}`, "_blank");
 }
