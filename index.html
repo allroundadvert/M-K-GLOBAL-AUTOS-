@@ -53,22 +53,19 @@ header p{
     grid-template-columns:repeat(3, 1fr);
     gap:10px;
     padding:15px;
-    text-align:center;
 }
 
-.columns a{
-    display:block;
-    padding:12px;
+.column-item{
     background:#111;
-    color:#f5d76e;
-    text-decoration:none;
     border:2px solid #f5d76e;
-    border-radius:5px;
+    border-radius:6px;
+    padding:12px;
+    text-align:center;
+    cursor:pointer;
     font-weight:bold;
-    transition:0.3s;
 }
 
-.columns a:hover{
+.column-item:hover{
     background:#f5d76e;
     color:#000;
 }
@@ -113,7 +110,7 @@ button{
 
 /* ===== MAP ===== */
 .map{
-    margin:20px;
+    margin:20px 0;
     border:2px solid #f5d76e;
 }
 
@@ -134,9 +131,8 @@ footer{
 <img src="https://raw.githubusercontent.com/allroundadvert/M-K-GLOBAL-AUTOS-/245ff13fbbade84acba743c73ce97952d8ca0ec7/.github/workflows/1775644012285.png" alt="M & K GLOBAL AUTOS">
 
 <h1>M & K GLOBAL AUTOS</h1>
-<p><b>Expert in Upgrading and Conversion Kits</b></p>
-<p>Bonnet, bumper, full light, back light, fender, grill, side mirror, door and other accessories, Toyota and Lexus</p>
-<p>029, 027 & 032 Peace Plaza, By Bonsac Junction, Asaba–Benin Expressway, Asaba</p>
+<p><b>Expert in Upgrading and Conversion Kit</b></p>
+<p>Bonnet, Bumper, Full Light, Back Light, Fender, Grill, Side Mirror, Door, Accessories, Toyota, Lexus</p>
 
 <div class="buttons">
 <a href="https://wa.me/2347031336663">WHATSAPP</a>
@@ -145,33 +141,36 @@ footer{
 </div>
 </header>
 
-<!-- ===== COLUMNS ===== -->
-<h2 style="text-align:center; padding-top:10px;">Place Your Orders</h2>
+<!-- ===== PLACE YOUR ORDERS ===== -->
+<h2 style="text-align:center; padding:10px;">Place Your Orders</h2>
+
+<!-- ===== CLICKABLE PRODUCT COLUMNS ===== -->
 <div class="columns">
-<a href="#">Upgrading and conversion Bonnet</a>
-<a href="#">Bumper</a>
-<a href="#">Full Light</a>
-<a href="#">Back Light</a>
-<a href="#">Fender</a>
-<a href="#">Grill</a>
-<a href="#">Side Mirror</a>
-<a href="#">Door</a>
-<a href="#">Accessories</a>
-<a href="#">Toyota</a>
-<a href="#">Lexus</a>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Bonnet\n'">Bonnet</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Bumper\n'">Bumper</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Full Light\n'">Full Light</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Back Light\n'">Back Light</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Fender\n'">Fender</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Grill\n'">Grill</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Side Mirror\n'">Side Mirror</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Door\n'">Door</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Accessories\n'">Accessories</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Toyota\n'">Toyota</div>
+<div class="column-item" onclick="document.getElementById('cSpecs').value+='Lexus\n'">Lexus</div>
 </div>
 
 <!-- ===== ORDER FORM ===== -->
 <div class="container">
 <form onsubmit="sendWhatsApp(); return false;">
-<label>Name</label>
+
+<label>Customer Name</label>
 <input type="text" id="cName" required>
 
 <label>Phone Number</label>
 <input type="tel" id="cPhone" required>
 
 <label>Specifications</label>
-<textarea id="cSpecs" required placeholder="Enter your specifications"></textarea>
+<textarea id="cSpecs" rows="5" placeholder="Click the items above to add to your order..." required></textarea>
 
 <label>Are we delivering to your house?</label>
 <select id="cDelivery">
@@ -179,34 +178,32 @@ footer{
 <option>No</option>
 </select>
 
-<button>Submit via WhatsApp</button>
+<button type="submit">Submit via WhatsApp</button>
+
 </form>
 </div>
 
 <!-- ===== MAP ===== -->
 <div class="map">
 <iframe 
-src="https://www.google.com/maps?q=Asaba%20Benin%20Expressway&output=embed"
+src="https://www.google.com/maps?q=Shop+C+73,+No+36+Osoro+Street,+Papa+Ajao,+Ladipo,+Mushin,+Lagos&output=embed"
 width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
 </iframe>
 </div>
 
 <footer>
-© M & K GLOBAL AUTOS – Trusted Auto Upgrading Specialists
+© M & K GLOBAL AUTOS – Trusted in Upgrading & Conversion Kits
 </footer>
 
+<!-- ===== WHATSAPP SCRIPT ===== -->
 <script>
 function sendWhatsApp(){
-    const name = document.getElementById("cName").value;
-    const phone = document.getElementById("cPhone").value;
-    const specs = document.getElementById("cSpecs").value;
-    const delivery = document.getElementById("cDelivery").value;
+    const name = encodeURIComponent(document.getElementById("cName").value);
+    const phone = encodeURIComponent(document.getElementById("cPhone").value);
+    const specs = encodeURIComponent(document.getElementById("cSpecs").value);
+    const delivery = encodeURIComponent(document.getElementById("cDelivery").value);
 
-    const message = `Hello M & K GLOBAL AUTOS!%0A%0AI would like to place an order:%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Specifications: ${specs}%0A
-Home Delivery: ${delivery}%0A%0AThank you.`;
+    const message = `Hello M & K GLOBAL AUTOS!%0A%0AI would like to place an order:%0AName: ${name}%0APhone: ${phone}%0ASpecifications: ${specs}%0AHome Delivery: ${delivery}%0AThank you.`;
 
     window.open(`https://wa.me/2347031336663?text=${message}`, "_blank");
 }
