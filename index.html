@@ -35,39 +35,24 @@ header p{
     font-size:14px;
 }
 
-/* ===== BUTTONS ===== */
-.buttons a{
-    display:inline-block;
-    margin:6px;
-    padding:10px 16px;
-    background:#f5d76e;
-    color:#000;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:5px;
-}
-
-/* ===== COLUMNS ===== */
+/* ===== ORDER COLUMNS ===== */
 .columns{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:10px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
     padding:15px;
 }
 
 .column-item{
     background:#111;
+    color:#f5d76e;
     border:2px solid #f5d76e;
-    border-radius:6px;
     padding:12px;
-    text-align:center;
+    margin:6px;
     cursor:pointer;
-    font-weight:bold;
-}
-
-.column-item:hover{
-    background:#f5d76e;
-    color:#000;
+    border-radius:5px;
+    flex: 1 1 45%;
+    text-align:center;
 }
 
 /* ===== ORDER FORM ===== */
@@ -94,6 +79,8 @@ input, select, textarea{
     margin-top:5px;
     border-radius:4px;
     border:none;
+    background:#222;
+    color:#f5d76e;
 }
 
 button{
@@ -110,7 +97,7 @@ button{
 
 /* ===== MAP ===== */
 .map{
-    margin:20px 0;
+    margin:20px;
     border:2px solid #f5d76e;
 }
 
@@ -126,13 +113,13 @@ footer{
 
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER IMAGE ===== -->
 <header>
 <img src="https://raw.githubusercontent.com/allroundadvert/M-K-GLOBAL-AUTOS-/245ff13fbbade84acba743c73ce97952d8ca0ec7/.github/workflows/1775644012285.png" alt="M & K GLOBAL AUTOS">
 
 <h1>M & K GLOBAL AUTOS</h1>
 <p><b>Expert in Upgrading and Conversion Kit</b></p>
-<p>Bonnet, Bumper, Full Light, Back Light, Fender, Grill, Side Mirror, Door, Accessories, Toyota, Lexus</p>
+<p>Bonnet, Bumper, Full Light, Back Light, Fender, Grill, Side Mirror, Door and Other Accessories, Toyota & Lexus</p>
 
 <div class="buttons">
 <a href="https://wa.me/2347031336663">WHATSAPP</a>
@@ -141,22 +128,20 @@ footer{
 </div>
 </header>
 
-<!-- ===== PLACE YOUR ORDERS ===== -->
-<h2 style="text-align:center; padding:10px;">Place Your Orders</h2>
-
-<!-- ===== CLICKABLE PRODUCT COLUMNS ===== -->
+<!-- ===== ORDER COLUMNS ===== -->
+<h2 style="text-align:center; margin-top:20px;">Place Your Orders</h2>
 <div class="columns">
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Bonnet\n'">Bonnet</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Bumper\n'">Bumper</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Full Light\n'">Full Light</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Back Light\n'">Back Light</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Fender\n'">Fender</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Grill\n'">Grill</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Side Mirror\n'">Side Mirror</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Door\n'">Door</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Accessories\n'">Accessories</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Toyota\n'">Toyota</div>
-<div class="column-item" onclick="document.getElementById('cSpecs').value+='Lexus\n'">Lexus</div>
+<div class="column-item" onclick="addToSpecs('Upgrading and conversion Bonnet')">Upgrading and conversion Bonnet</div>
+<div class="column-item" onclick="addToSpecs('Bumper')">Bumper</div>
+<div class="column-item" onclick="addToSpecs('Full Light')">Full Light</div>
+<div class="column-item" onclick="addToSpecs('Back Light')">Back Light</div>
+<div class="column-item" onclick="addToSpecs('Fender')">Fender</div>
+<div class="column-item" onclick="addToSpecs('Grill')">Grill</div>
+<div class="column-item" onclick="addToSpecs('Side Mirror')">Side Mirror</div>
+<div class="column-item" onclick="addToSpecs('Door')">Door</div>
+<div class="column-item" onclick="addToSpecs('Accessories')">Accessories</div>
+<div class="column-item" onclick="addToSpecs('Toyota')">Toyota</div>
+<div class="column-item" onclick="addToSpecs('Lexus')">Lexus</div>
 </div>
 
 <!-- ===== ORDER FORM ===== -->
@@ -170,7 +155,7 @@ footer{
 <input type="tel" id="cPhone" required>
 
 <label>Specifications</label>
-<textarea id="cSpecs" rows="5" placeholder="Click the items above to add to your order..." required></textarea>
+<textarea id="cSpecs" rows="5" placeholder="Click the items above to add them here" required></textarea>
 
 <label>Are we delivering to your house?</label>
 <select id="cDelivery">
@@ -186,24 +171,35 @@ footer{
 <!-- ===== MAP ===== -->
 <div class="map">
 <iframe 
-src="https://www.google.com/maps?q=Shop+C+73,+No+36+Osoro+Street,+Papa+Ajao,+Ladipo,+Mushin,+Lagos&output=embed"
+src="https://www.google.com/maps?q=Shop%20C%2073%2C%20Number%2036%20Osoro%20Street%2C%20Papa%20Ajao%2C%20Ladipo%2C%20Mushin%2C%20Lagos&output=embed"
 width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
 </iframe>
 </div>
 
 <footer>
-© M & K GLOBAL AUTOS – Trusted in Upgrading & Conversion Kits
+© M & K GLOBAL AUTOS – Trusted Experts in Upgrading and Conversion Kits
 </footer>
 
-<!-- ===== WHATSAPP SCRIPT ===== -->
 <script>
-function sendWhatsApp(){
-    const name = encodeURIComponent(document.getElementById("cName").value);
-    const phone = encodeURIComponent(document.getElementById("cPhone").value);
-    const specs = encodeURIComponent(document.getElementById("cSpecs").value);
-    const delivery = encodeURIComponent(document.getElementById("cDelivery").value);
+// Add clicked column item to the specifications textarea
+function addToSpecs(text){
+    const specs = document.getElementById("cSpecs");
+    if(specs.value){
+        specs.value += "\n" + text;
+    } else {
+        specs.value = text;
+    }
+}
 
-    const message = `Hello M & K GLOBAL AUTOS!%0A%0AI would like to place an order:%0AName: ${name}%0APhone: ${phone}%0ASpecifications: ${specs}%0AHome Delivery: ${delivery}%0AThank you.`;
+// Send order via WhatsApp
+function sendWhatsApp(){
+    const name = document.getElementById("cName").value.trim();
+    const phone = document.getElementById("cPhone").value.trim();
+    let specs = document.getElementById("cSpecs").value.trim();
+    specs = specs.replace(/\n/g, '%0A');
+    const delivery = document.getElementById("cDelivery").value.trim();
+
+    const message = `Hello M & K GLOBAL AUTOS!%0A%0AI would like to place an order:%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ASpecifications:%0A${specs}%0AHome Delivery: ${encodeURIComponent(delivery)}%0AThank you.`;
 
     window.open(`https://wa.me/2347031336663?text=${message}`, "_blank");
 }
